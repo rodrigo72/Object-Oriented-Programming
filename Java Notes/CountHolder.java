@@ -1,5 +1,5 @@
 // Why use Getters and Setters?
-// Consider a bisic class containing an object with getters and setters in Java
+// Consider a basic class containing an object with getters and setters in Java
 
 public class CountHolder {
     private int count = 0;
