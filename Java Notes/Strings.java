@@ -1,6 +1,8 @@
 import java.util.*; // Necessary for 'Locale'
 import java.util.regex.*; // Necessary for 'Pattern'
 
+// (See 'javaHeap' in the folder 'Images')
+
 class Strings {
     public static void main (String[] args) throws java.lang.Exception {
         String firstString = "Test123";
@@ -226,6 +228,73 @@ class Strings {
         StringBuilder sb = new StringBuilder("a");
         String ss4 = sb.append("b").append("c").toString();
 
+        // SUBSTRINGS
+
+        String s4 = "this is an example";
+        String a2 = s4.substring(11); // a will hold the string starting at character 11 until the end ("example")   
+        String b = s4.substring(5, 10); // b will hold the string starting at character 5 and eding right before character 10 ("is an")
+        String c2 = s4.substring(5, s4.length() - 3); 
+        System.out.println(c2); // "is an exam"
+
+        // REVERSING STRINGS
+        // There are a coulpe of ways you can reverse a string to make it backwards
+
+        // 1. StringBuilder/ StringBuffer
+        String code = "code";
+        System.out.println(code);
+
+        StringBuilder sb2 = new StringBuilder(code);
+        code = sb2.reverse().toString();
+
+        System.out.println(code);
+
+        // 2. Char array
+        char[] array = code.toCharArray();
+        for (int index = 0, mirroredIndex = array.length - 1; index < mirroredIndex; index++, mirroredIndex--) {
+            char temp = array[index];
+            array[index] = array[mirroredIndex];
+            array[mirroredIndex] = temp;
+        }
+        // print reversed
+        System.out.println(new String(array));
+
+        // REMOVE WHITESPACE FROM THE BEGINNING AND END OF A STRING
+        String s5 = new String("    Hello World!     ");
+        String t = s.trim(); // t = "Hello World!"
+
+        // REPLACING PARTS OF STRINGS
+        // Two ways to replace: by regex or by exact match
+
+        // Exact match
+        //String replace(char oldChar, char newChar) -> returns a new string resulting from replacing 
+        // all occurrences of oldChar in this string newChar:
+
+        String s6 = "popcorn";
+        System.out.println(s.replace('p', 'W'));
+        // result: WoWcorn
+
+        // Replace sequence of characters with another sequence of characters
+        // String replace(CharSquence target, CharSequence replacement)
+        // replaces each substring of this string that maches the literal target sequence with the specified literal
+        // replacement sequence
+
+        String s7 = "metal petal et al";
+        System.out.println(s.replace("etal", "etallica"));
+        // result: metallica petallica et all
+
+        // Regex
+        System.out.println(s.replaceAll("(\\w*etal)","$1lica"));
+
+        // GETTING THE LENGTH OF A STRING 
+        String str6 = "Hello, world!";
+        System.out.println(str6.length()); // prints out 13
+
+        // GETTING THE NTH CHARACTER FROM A STRING
+        String str7 = "My String";
+        System.out.println(str7.charAt(0)); // "M"
+        System.out.println(str7.charAt(1)); // "y"
+        System.out.println(str7.charAt(2)); // " "
+        System.out.println(str7.charAt(str7.length() - 1)); // Last character "g"
 
     }
 }
